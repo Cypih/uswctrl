@@ -1,0 +1,380 @@
+system name USW-Pro-XG-10-PoE
+ip address 0.0.0.0
+qos
+qos trust dscp
+ip dhcp snooping
+no ip dhcp snooping light
+vlan 1
+vlan 2
+vlan 3
+vlan 4
+vlan 5
+vlan 6
+vlan 7
+vlan 8
+ip igmp snooping vlan 1
+ip igmp snooping vlan 1 immediate-leave
+ip igmp snooping vlan 1 response-time 10
+ip igmp snooping vlan 1 query-interval 125
+ip igmp snooping vlan 1 querier version 2
+ip igmp snooping vlan 1 querier election-participate
+ip igmp snooping vlan 1 flood-unknown-multicast
+ip igmp snooping vlan 1 fast-leave interface te1
+ip igmp snooping vlan 1 fast-leave interface te2
+ip igmp snooping vlan 1 fast-leave interface te3
+ip igmp snooping vlan 1 fast-leave interface te4
+ip igmp snooping vlan 1 fast-leave interface te5
+ip igmp snooping vlan 1 fast-leave interface te6
+ip igmp snooping vlan 1 fast-leave interface te7
+ip igmp snooping vlan 1 fast-leave interface te8
+ip igmp snooping vlan 1 fast-leave interface te9
+ip igmp snooping vlan 1 fast-leave interface te10
+ip igmp snooping vlan 1 fast-leave interface te11
+ip igmp snooping vlan 1 fast-leave interface te12
+ipv6 mld snooping vlan 1
+ipv6 mld snooping vlan 1 immediate-leave
+ipv6 mld snooping vlan 1 response-time 10
+ipv6 mld snooping vlan 1 query-interval 125
+ipv6 mld snooping vlan 1 flood-unknown-multicast
+ipv6 mld snooping vlan 1 fast-leave interface te1
+ipv6 mld snooping vlan 1 fast-leave interface te2
+ipv6 mld snooping vlan 1 fast-leave interface te3
+ipv6 mld snooping vlan 1 fast-leave interface te4
+ipv6 mld snooping vlan 1 fast-leave interface te5
+ipv6 mld snooping vlan 1 fast-leave interface te6
+ipv6 mld snooping vlan 1 fast-leave interface te7
+ipv6 mld snooping vlan 1 fast-leave interface te8
+ipv6 mld snooping vlan 1 fast-leave interface te9
+ipv6 mld snooping vlan 1 fast-leave interface te10
+ipv6 mld snooping vlan 1 fast-leave interface te11
+ipv6 mld snooping vlan 1 fast-leave interface te12
+no ip igmp snooping report-suppression
+ip igmp snooping
+ip igmp snooping version 3
+ip igmp snooping unknown-multicast action router-port
+no ipv6 mld snooping report-suppression
+ipv6 mld snooping
+ipv6 mld snooping unknown-multicast action router-port
+no snmp
+spanning-tree mode rstp
+spanning-tree pathcost method long
+spanning-tree priority 32768
+spanning-tree
+storm-control unit level
+no errdisable recovery cause all
+errdisable recovery interval 60
+interface te1
+ switchport mode hybrid
+ switchport forbidden vlan remove 1-4094
+ switchport hybrid allowed vlan remove 1-4094
+ switchport forbidden vlan add 1
+ switchport forbidden vlan add 2
+ switchport forbidden vlan add 3
+ switchport hybrid allowed vlan add 4 untagged
+ switchport forbidden vlan add 5
+ switchport forbidden vlan add 6
+ switchport forbidden vlan add 7
+ switchport forbidden vlan add 8
+ switchport hybrid pvid 4
+ spanning-tree edge auto
+ no spanning-tree bpdu-guard
+ keepalive action both
+ dot1x guest-vlan
+ description "Port 1"
+ flowcontrol on
+ duplex full
+ speed auto 2500
+ lldp tlv-select port-desc sys-name sys-desc sys-cap management-addr
+ lldp rx
+ lldp tx
+lldp med
+lldp med tlv-select poe-pse
+exit
+!
+interface te2
+ switchport mode hybrid
+ switchport forbidden vlan remove 1-4094
+ switchport hybrid allowed vlan remove 1-4094
+ switchport forbidden vlan add 1
+ switchport forbidden vlan add 2
+ switchport forbidden vlan add 3
+ switchport hybrid allowed vlan add 4 untagged
+ switchport forbidden vlan add 5
+ switchport forbidden vlan add 6
+ switchport forbidden vlan add 7
+ switchport forbidden vlan add 8
+ switchport hybrid pvid 4
+ spanning-tree edge auto
+ no spanning-tree bpdu-guard
+ keepalive action both
+ dot1x guest-vlan
+ description "Port 2"
+ flowcontrol on
+ duplex full
+ speed auto 2500
+ lldp tlv-select port-desc sys-name sys-desc sys-cap management-addr
+ lldp rx
+ lldp tx
+lldp med
+lldp med tlv-select poe-pse
+exit
+!
+interface te3
+ switchport mode hybrid
+ switchport forbidden vlan remove 1-4094
+ switchport hybrid allowed vlan remove 1-4094
+ switchport forbidden vlan add 1
+ switchport forbidden vlan add 2
+ switchport hybrid allowed vlan add 3 untagged
+ switchport forbidden vlan add 4
+ switchport forbidden vlan add 5
+ switchport forbidden vlan add 6
+ switchport forbidden vlan add 7
+ switchport forbidden vlan add 8
+ switchport hybrid pvid 3
+ spanning-tree edge auto
+ no spanning-tree bpdu-guard
+ keepalive action both
+ dot1x guest-vlan
+ description "Port 3"
+ flowcontrol on
+ lldp tlv-select port-desc sys-name sys-desc sys-cap management-addr
+ lldp rx
+ lldp tx
+lldp med
+lldp med tlv-select poe-pse
+exit
+!
+interface te4
+ switchport mode hybrid
+ switchport forbidden vlan remove 1-4094
+ switchport hybrid allowed vlan remove 1-4094
+ switchport forbidden vlan add 1
+ switchport forbidden vlan add 2
+ switchport hybrid allowed vlan add 3 untagged
+ switchport forbidden vlan add 4
+ switchport forbidden vlan add 5
+ switchport forbidden vlan add 6
+ switchport forbidden vlan add 7
+ switchport forbidden vlan add 8
+ switchport hybrid pvid 3
+ spanning-tree edge auto
+ no spanning-tree bpdu-guard
+ keepalive action both
+ dot1x guest-vlan
+ description "Port 4"
+ flowcontrol on
+ lldp tlv-select port-desc sys-name sys-desc sys-cap management-addr
+ lldp rx
+ lldp tx
+lldp med
+lldp med tlv-select poe-pse
+exit
+!
+interface te5
+ switchport mode hybrid
+ switchport forbidden vlan remove 1-4094
+ switchport hybrid allowed vlan remove 1-4094
+ switchport forbidden vlan add 1
+ switchport forbidden vlan add 2
+ switchport hybrid allowed vlan add 3 untagged
+ switchport forbidden vlan add 4
+ switchport forbidden vlan add 5
+ switchport forbidden vlan add 6
+ switchport forbidden vlan add 7
+ switchport forbidden vlan add 8
+ switchport hybrid pvid 3
+ spanning-tree edge auto
+ no spanning-tree bpdu-guard
+ keepalive action both
+ dot1x guest-vlan
+ description "Port 5"
+ flowcontrol on
+ lldp tlv-select port-desc sys-name sys-desc sys-cap management-addr
+ lldp rx
+ lldp tx
+lldp med
+lldp med tlv-select poe-pse
+exit
+!
+interface te6
+ switchport mode hybrid
+ switchport forbidden vlan remove 1-4094
+ switchport hybrid allowed vlan remove 1-4094
+ switchport forbidden vlan add 1
+ switchport forbidden vlan add 2
+ switchport hybrid allowed vlan add 3 untagged
+ switchport forbidden vlan add 4
+ switchport forbidden vlan add 5
+ switchport forbidden vlan add 6
+ switchport forbidden vlan add 7
+ switchport forbidden vlan add 8
+ switchport hybrid pvid 3
+ spanning-tree edge auto
+ no spanning-tree bpdu-guard
+ keepalive action both
+ dot1x guest-vlan
+ description "Port 6"
+ flowcontrol on
+ lldp tlv-select port-desc sys-name sys-desc sys-cap management-addr
+ lldp rx
+ lldp tx
+lldp med
+lldp med tlv-select poe-pse
+exit
+!
+interface te7
+ switchport mode hybrid
+ switchport forbidden vlan remove 1-4094
+ switchport hybrid allowed vlan remove 1-4094
+ switchport hybrid allowed vlan add 1 untagged
+ switchport hybrid allowed vlan add 2 tagged
+ switchport hybrid allowed vlan add 3 tagged
+ switchport hybrid allowed vlan add 4 tagged
+ switchport hybrid allowed vlan add 5 tagged
+ switchport hybrid allowed vlan add 6 tagged
+ switchport hybrid allowed vlan add 7 tagged
+ switchport hybrid allowed vlan add 8 tagged
+ spanning-tree edge auto
+ no spanning-tree bpdu-guard
+ keepalive action both
+ dot1x guest-vlan
+ description "Port 7"
+ flowcontrol on
+ lldp tlv-select port-desc sys-name sys-desc sys-cap management-addr
+ lldp rx
+ lldp tx
+lldp med
+lldp med tlv-select poe-pse
+exit
+!
+interface te8
+ switchport mode hybrid
+ switchport forbidden vlan remove 1-4094
+ switchport hybrid allowed vlan remove 1-4094
+ switchport hybrid allowed vlan add 1 untagged
+ switchport hybrid allowed vlan add 2 tagged
+ switchport hybrid allowed vlan add 3 tagged
+ switchport hybrid allowed vlan add 4 tagged
+ switchport hybrid allowed vlan add 5 tagged
+ switchport hybrid allowed vlan add 6 tagged
+ switchport hybrid allowed vlan add 7 tagged
+ switchport hybrid allowed vlan add 8 tagged
+ spanning-tree edge auto
+ no spanning-tree bpdu-guard
+ keepalive action both
+ dot1x guest-vlan
+ description "Port 8"
+ flowcontrol on
+ lldp tlv-select port-desc sys-name sys-desc sys-cap management-addr
+ lldp rx
+ lldp tx
+lldp med
+lldp med tlv-select poe-pse
+exit
+!
+interface te9
+ switchport mode hybrid
+ switchport forbidden vlan remove 1-4094
+ switchport hybrid allowed vlan remove 1-4094
+ switchport hybrid allowed vlan add 1 untagged
+ switchport hybrid allowed vlan add 2 tagged
+ switchport hybrid allowed vlan add 3 tagged
+ switchport hybrid allowed vlan add 4 tagged
+ switchport hybrid allowed vlan add 5 tagged
+ switchport hybrid allowed vlan add 6 tagged
+ switchport hybrid allowed vlan add 7 tagged
+ switchport hybrid allowed vlan add 8 tagged
+ spanning-tree edge auto
+ no spanning-tree bpdu-guard
+ keepalive action both
+ dot1x guest-vlan
+ description "Port 9"
+ flowcontrol on
+ lldp tlv-select port-desc sys-name sys-desc sys-cap management-addr
+ lldp rx
+ lldp tx
+lldp med
+lldp med tlv-select poe-pse
+exit
+!
+interface te10
+ switchport mode hybrid
+ switchport forbidden vlan remove 1-4094
+ switchport hybrid allowed vlan remove 1-4094
+ switchport hybrid allowed vlan add 1 untagged
+ switchport hybrid allowed vlan add 2 tagged
+ switchport hybrid allowed vlan add 3 tagged
+ switchport hybrid allowed vlan add 4 tagged
+ switchport hybrid allowed vlan add 5 tagged
+ switchport hybrid allowed vlan add 6 tagged
+ switchport hybrid allowed vlan add 7 tagged
+ switchport hybrid allowed vlan add 8 tagged
+ spanning-tree edge auto
+ no spanning-tree bpdu-guard
+ keepalive action both
+ dot1x guest-vlan
+ description "Port 10"
+ flowcontrol on
+ lldp tlv-select port-desc sys-name sys-desc sys-cap management-addr
+ lldp rx
+ lldp tx
+lldp med
+lldp med tlv-select poe-pse
+exit
+!
+interface te11
+ switchport mode hybrid
+ switchport forbidden vlan remove 1-4094
+ switchport hybrid allowed vlan remove 1-4094
+ switchport hybrid allowed vlan add 1 untagged
+ switchport hybrid allowed vlan add 2 tagged
+ switchport hybrid allowed vlan add 3 tagged
+ switchport hybrid allowed vlan add 4 tagged
+ switchport hybrid allowed vlan add 5 tagged
+ switchport hybrid allowed vlan add 6 tagged
+ switchport hybrid allowed vlan add 7 tagged
+ switchport hybrid allowed vlan add 8 tagged
+ no spanning-tree edge
+ no spanning-tree bpdu-guard
+ keepalive action both
+ dot1x guest-vlan
+ description "SFP_ 1"
+ flowcontrol on
+ duplex auto
+ speed auto
+ lldp tlv-select port-desc sys-name sys-desc sys-cap management-addr
+ lldp rx
+ lldp tx
+lldp med
+exit
+!
+interface te12
+ switchport mode hybrid
+ switchport forbidden vlan remove 1-4094
+ switchport hybrid allowed vlan remove 1-4094
+ switchport hybrid allowed vlan add 1 untagged
+ switchport hybrid allowed vlan add 2 tagged
+ switchport hybrid allowed vlan add 3 tagged
+ switchport hybrid allowed vlan add 4 tagged
+ switchport hybrid allowed vlan add 5 tagged
+ switchport hybrid allowed vlan add 6 tagged
+ switchport hybrid allowed vlan add 7 tagged
+ switchport hybrid allowed vlan add 8 tagged
+ spanning-tree edge auto
+ no spanning-tree bpdu-guard
+ keepalive action both
+ dot1x guest-vlan
+ description "SFP_ 2"
+ flowcontrol on
+ duplex auto
+ speed auto
+ lldp tlv-select port-desc sys-name sys-desc sys-cap management-addr
+ lldp rx
+ lldp tx
+lldp med
+exit
+!
+jumbo-frame 9216
+!
+no ip unicast-routing

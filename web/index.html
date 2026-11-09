@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<!-- uswctl web page: the user's control panel for the switches. -->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=1280">
+<meta name="color-scheme" content="light dark">
+<title>uswctl</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect x='1' y='3' width='14' height='10' rx='2' fill='%232560d6'/%3E%3Crect x='3.5' y='6' width='2' height='4' fill='white'/%3E%3Crect x='7' y='6' width='2' height='4' fill='white'/%3E%3Crect x='10.5' y='6' width='2' height='4' fill='white'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+<div id="app">
+  <header class="topbar">
+    <div class="brand">uswctl</div>
+    <nav id="tabs" class="tabs" role="tablist" aria-label="Switches"></nav>
+    <div class="topbar-end">
+      <span id="sync" class="sync" aria-live="polite"></span>
+      <button id="signout" type="button" class="btn btn-quiet" hidden>Sign out</button>
+    </div>
+  </header>
+
+  <main id="main" class="main" hidden>
+    <section id="summary" class="summary" aria-label="Switch status"></section>
+    <section id="locate" class="locate-banner" aria-label="Port locate" hidden></section>
+    <section class="panel">
+      <table id="ports" class="ports">
+        <colgroup>
+          <col class="c-port"><col class="c-name"><col class="c-link"><col class="c-poe">
+          <col class="c-stp"><col class="c-macs"><col class="c-vlans"><col class="c-config">
+          <col class="c-resv"><col class="c-actions">
+        </colgroup>
+        <thead>
+          <tr>
+            <th scope="col">Port</th>
+            <th scope="col">Name</th>
+            <th scope="col">Link</th>
+            <th scope="col">PoE</th>
+            <th scope="col">STP state</th>
+            <th scope="col" class="cell-macs">MACs</th>
+            <th scope="col" title="Native VLAN (boxed), then the tagged VLANs">VLANs</th>
+            <th scope="col">Settings</th>
+            <th scope="col">Reservation</th>
+            <th scope="col">Actions</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </section>
+    <div class="lower">
+      <section id="global" class="panel card" aria-label="Switch-wide settings"></section>
+      <section id="events" class="panel card" aria-label="Recent events"></section>
+      <section id="reservations" class="panel card" aria-label="Reservations"></section>
+    </div>
+  </main>
+
+  <section id="connect" class="login" hidden>
+    <div class="login-card" role="status">
+      <h1>uswctl</h1>
+      <p><span class="spinner" aria-hidden="true"></span> The daemon is not reachable. The page tries again every 5 s.</p>
+      <p id="connect-detail" class="muted"></p>
+    </div>
+  </section>
+
+  <section id="login" class="login" hidden>
+    <form id="login-form" class="login-card">
+      <h1>uswctl</h1>
+      <p class="muted">Enter the user token to manage the switches.</p>
+      <label class="field">
+        <span class="field-label">User token</span>
+        <input id="login-token" type="password" autocomplete="current-password" required>
+      </label>
+      <p id="login-error" class="login-error" role="alert"></p>
+      <button type="submit" class="btn btn-primary">Sign in</button>
+    </form>
+  </section>
+</div>
+<dialog id="dialog" class="dialog" aria-labelledby="dialog-title"></dialog>
+<div id="toasts" class="toasts" aria-live="polite"></div>
+<script src="app.js"></script>
+</body>
+</html>

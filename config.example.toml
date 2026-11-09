@@ -1,0 +1,51 @@
+# Example uswctld config. Copy to ~/.config/uswctl/config.toml, fill in the two tokens,
+# the SSH user and the switches, and set the file's mode to 600 (uswctld refuses to start
+# otherwise):
+#   chmod 600 ~/.config/uswctl/config.toml
+
+# 127.0.0.1 serves this host only. For the web page from another host, use the network
+# address of this host, for example "192.0.2.10:8650".
+listen = "127.0.0.1:8650"
+
+# The API and command-line client token (spec section 10). Replace before first use.
+agent_token = "CHANGE-ME-agent"
+# The web page token. Only it can touch a protected port or a switch-wide setting.
+user_token = "CHANGE-ME-user"
+
+# The SSH user of the switches: the device SSH user name that the UniFi Network
+# application set on the switches, or the one you set by hand.
+ssh_user = "CHANGE-ME-ssh-user"
+ssh_key = "~/.ssh/id_rsa"
+data_dir = "~/.local/share/uswctl"
+
+poll_s = 5
+overlay_check_s = 30
+
+# Optional. Before each change, the daemon reads this file on the switch. If the file has
+# text, another holder has the switch, and the daemon refuses the change. The daemon never
+# writes the file. Remove the line to turn the check off.
+lock_path = "/tmp/agent-lock"
+
+# A lock whose text contains `lock_token` counts as the daemon's own; every other lock
+# stops a change. Use a value that no lock holder writes. `lock_token` is optional.
+#
+# `protected_ports` lists the ports that carry the network itself, for example the
+# uplink and the link to this host. Only the user token can change them.
+#
+# `tested_firmware` lists the firmware versions on which a change is allowed. Add a
+# version after a supervised change on that firmware shows the expected effect.
+[[switches]]
+name = "promax16"
+host = "192.0.2.11"
+model_code = "USPM16P"
+protected_ports = [14, 17]
+tested_firmware = []
+lock_token = "uswctld-own-lock-allowance"
+
+[[switches]]
+name = "xg10"
+host = "192.0.2.107"
+model_code = "USWED77"
+protected_ports = [11]
+tested_firmware = ["7.5.15.17146"]
+lock_token = "uswctld-own-lock-allowance"

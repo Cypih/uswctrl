@@ -1,0 +1,15 @@
+Total Power Limit(mW): 400000
+
+Port  OpMode      HpMode    PwrLimit   Class   PoEPwr  PwrGood  Power(W)  Voltage(V)  Current(mA)
+                              (mW)                                                               
+----  ------  ------------  --------  -------  ------  -------  --------  ----------  -----------
+   1    Auto  Dot3bt-type4     96000  Class 6      On     Good      8.50       53.81       158.00
+   2    Auto  Dot3bt-type4     96000  Unknown     Off      Bad      0.00        0.00         0.00
+   3    Auto  Dot3bt-type4     96000  Unknown     Off      Bad      0.00        0.00         0.00
+   4    Auto  Dot3bt-type4     96000  Unknown     Off      Bad      0.00        0.00         0.00
+   5    Auto  Dot3bt-type4     96000  Unknown     Off      Bad      0.00        0.00         0.00
+   6    Auto  Dot3bt-type4     96000  Unknown     Off      Bad      0.00        0.00         0.00
+   7    Auto  Dot3bt-type4     96000  Unknown     Off      Bad      0.00        0.00         0.00
+   8    Auto  Dot3bt-type4     96000  Unknown     Off      Bad      0.00        0.00         0.00
+   9    Auto  Dot3bt-type4     96000  Unknown     Off      Bad      0.00        0.00         0.00
+  10    Auto  Dot3bt-type4     96000  Unknown     Off      Bad      0.00        0.00         0.00

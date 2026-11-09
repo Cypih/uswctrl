@@ -1,0 +1,197 @@
+SYSTEM CONFIG FILE ::= BEGIN
+! System Description: Unifi Switch UBNT-USPXG10P Switch
+! System Version: v3.5.0.3
+! System Name: USW-Pro-XG-10-PoE
+! System Up Time: 0 days, 0 hours, 55 mins, 38 secs
+!
+!
+jumbo-frame 9216
+system name "USW-Pro-XG-10-PoE"
+ip address 192.0.2.107 mask 255.255.255.0
+ip default-gateway 192.0.2.1
+!
+!
+vlan 2-8
+!
+!
+!
+!
+storm-control unit level
+errdisable recovery interval 60
+spanning-tree mst configuration
+ name "02:00:00:00:10:90"
+!
+ip igmp snooping
+--More--
+[A[2Kno ip igmp snooping report-suppression
+ip igmp snooping version 3
+ip igmp snooping vlan 1 query-interval 125
+ip igmp snooping vlan 1 fast-leave interface te1-12
+ip igmp snooping vlan 1
+ip igmp snooping vlan 1 immediate-leave
+ip igmp snooping vlan 1 querier version 2
+ipv6 mld snooping
+no ipv6 mld snooping report-suppression
+ipv6 mld snooping vlan 1 query-interval 125
+ipv6 mld snooping vlan 1
+ipv6 mld snooping vlan 1 immediate-leave
+!
+!
+!
+!
+!
+!
+!
+!
+!
+qos
+qos trust dscp
+!
+--More--
+[A[2K!
+ip dhcp snooping
+!
+!
+!
+!
+!
+interface te1
+ switchport mode hybrid
+ switchport hybrid pvid 4
+ switchport hybrid allowed vlan add 4 untagged
+ switchport hybrid allowed vlan remove 1
+ switchport forbidden vlan add 1-3,5-8
+ authentication guest-vlan
+ no spanning-tree edge
+ speed auto 2500
+ duplex full
+ flowcontrol on
+ description "Port 1"
+ lldp tlv-select port-desc sys-name sys-desc sys-cap management-addr
+ lldp med tlv-select poe-pse
+!
+interface te2
+ switchport mode hybrid
+--More--
+[A[2K switchport hybrid pvid 4
+ switchport hybrid allowed vlan add 4 untagged
+ switchport hybrid allowed vlan remove 1
+ switchport forbidden vlan add 1-3,5-8
+ authentication guest-vlan
+ speed auto 2500
+ duplex full
+ flowcontrol on
+ description "Port 2"
+ lldp tlv-select port-desc sys-name sys-desc sys-cap management-addr
+ lldp med tlv-select poe-pse
+!
+interface te3
+ switchport mode hybrid
+ switchport hybrid pvid 3
+ switchport hybrid allowed vlan add 3 untagged
+ switchport hybrid allowed vlan remove 1
+ switchport forbidden vlan add 1-2,4-8
+ authentication guest-vlan
+ flowcontrol on
+ description "Port 3"
+ lldp tlv-select port-desc sys-name sys-desc sys-cap management-addr
+ lldp med tlv-select poe-pse
+!
+--More--
+[A[2Kinterface te4
+ switchport mode hybrid
+ switchport hybrid pvid 3
+ switchport hybrid allowed vlan add 3 untagged
+ switchport hybrid allowed vlan remove 1
+ switchport forbidden vlan add 1-2,4-8
+ authentication guest-vlan
+ flowcontrol on
+ description "Port 4"
+ lldp tlv-select port-desc sys-name sys-desc sys-cap management-addr
+ lldp med tlv-select poe-pse
+!
+interface te5
+ switchport mode hybrid
+ switchport hybrid pvid 3
+ switchport hybrid allowed vlan add 3 untagged
+ switchport hybrid allowed vlan remove 1
+ switchport forbidden vlan add 1-2,4-8
+ authentication guest-vlan
+ flowcontrol on
+ description "Port 5"
+ lldp tlv-select port-desc sys-name sys-desc sys-cap management-addr
+ lldp med tlv-select poe-pse
+!
+--More--
+[A[2Kinterface te6
+ switchport mode hybrid
+ switchport hybrid pvid 3
+ switchport hybrid allowed vlan add 3 untagged
+ switchport hybrid allowed vlan remove 1
+ switchport forbidden vlan add 1-2,4-8
+ authentication guest-vlan
+ flowcontrol on
+ description "Port 6"
+ lldp tlv-select port-desc sys-name sys-desc sys-cap management-addr
+ lldp med tlv-select poe-pse
+!
+interface te7
+ switchport mode hybrid
+ switchport hybrid allowed vlan add 2-8 tagged
+ authentication guest-vlan
+ flowcontrol on
+ description "Port 7"
+ lldp tlv-select port-desc sys-name sys-desc sys-cap management-addr
+ lldp med tlv-select poe-pse
+!
+interface te8
+ switchport mode hybrid
+ switchport hybrid allowed vlan add 2-8 tagged
+--More--
+[A[2K authentication guest-vlan
+ flowcontrol on
+ description "Port 8"
+ lldp tlv-select port-desc sys-name sys-desc sys-cap management-addr
+ lldp med tlv-select poe-pse
+!
+interface te9
+ switchport mode hybrid
+ switchport hybrid allowed vlan add 2-8 tagged
+ authentication guest-vlan
+ flowcontrol on
+ description "Port 9"
+ lldp tlv-select port-desc sys-name sys-desc sys-cap management-addr
+ lldp med tlv-select poe-pse
+!
+interface te10
+ switchport mode hybrid
+ switchport hybrid allowed vlan add 2-8 tagged
+ authentication guest-vlan
+ flowcontrol on
+ description "Port 10"
+ lldp tlv-select port-desc sys-name sys-desc sys-cap management-addr
+ lldp med tlv-select poe-pse
+!
+--More--
+[A[2Kinterface te11
+ switchport mode hybrid
+ switchport hybrid allowed vlan add 2-8 tagged
+ authentication guest-vlan
+ no spanning-tree edge
+ flowcontrol on
+ description "SFP_ 1"
+ lldp tlv-select port-desc sys-name sys-desc sys-cap management-addr
+!
+interface te12
+ switchport mode hybrid
+ switchport hybrid allowed vlan add 2-8 tagged
+ authentication guest-vlan
+ flowcontrol on
+ description "SFP_ 2"
+ lldp tlv-select port-desc sys-name sys-desc sys-cap management-addr
+!
+!
+!
+arp cache 0
+!
+

@@ -1,0 +1,16 @@
+# systemd user unit for uswctld. Install it as a user, not as root: the daemon
+# runs as the logged-in user and reads the user's own SSH key and config file.
+
+[Unit]
+Description=uswctl daemon for UniFi switches
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+ExecStart=%h/.cargo/bin/uswctld --config %h/.config/uswctl/config.toml
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=default.target
