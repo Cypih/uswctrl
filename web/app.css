@@ -642,8 +642,10 @@ select {
   width: 136px;
 }
 
+/* The Actions column holds the Link, PoE and Locate groups on one line; the Name column
+   takes the width that is left. */
 .c-actions {
-  width: 262px;
+  width: 304px;
 }
 
 .ports th {
@@ -839,10 +841,13 @@ select {
 }
 
 /* Link and PoE actions: subdued colours, so that 18 rows of buttons do not compete with
-   the live data. */
+   the live data. The groups wrap rather than clip, so that a wider font cannot hide an
+   action at the edge of the cell. */
 .actions {
   display: inline-flex;
-  gap: 8px;
+  flex-wrap: wrap;
+  gap: 4px 6px;
+  padding: 2px 0;
 }
 
 .seg {
@@ -862,13 +867,13 @@ select {
 .seg-label {
   display: inline-flex;
   align-items: center;
-  padding: 0 5px 0 6px;
+  padding: 0 4px 0 5px;
   color: var(--text-3);
   font-size: 10.5px;
 }
 
 .seg-btn {
-  padding: 0 6px;
+  padding: 0 5px;
   border: 0;
   border-left: 1px solid var(--border);
   background: transparent;
